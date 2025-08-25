@@ -1,45 +1,56 @@
-// import React from 'react'
-// import Navbar from "../../components/Navbar/Navbar"
-
-// const MyList = () => {
-//   return (
-//     <div className='main-div'>
-//       <Navbar/>
-//       <div className="mylist-cards">
-//         <h1 className='heading'>My List</h1>
-//       </div>
-//     </div>
-//   )
-// }
-
-// export default MyList
-import React from "react";
+import { useEffect } from "react";
+import "../MyList/Mylist.css";
 import { useWatchlist } from "../../context/WatchlistContext";
 import { Link } from "react-router-dom";
+import Navbar from "../../components/Navbar/Navbar";
+import trash_icon from "../../assets/trash_icon.svg";
+import eighteen_plus_icon from "../../assets/eighteen_plus_icon2.png";
+import twelve_plus_icon from "../../assets/twelve_plus_icon.png";
 
 const WatchlistPage = () => {
   const { watchlist, removeFromWatchlist } = useWatchlist();
 
+  useEffect(() => {
+    localStorage.setItem("watchlist", JSON.stringify(watchlist));
+  }, [watchlist]);
+
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>My Watchlist</h1>
-      {watchlist.length === 0 ? (
-        <p>No movies added yet. Go add some!</p>
-      ) : (
-        <ul>
-          {watchlist.map((movie) => (
-            <li key={movie.id} style={{ marginBottom: "10px" }}>
-              <Link to={`/details/${movie.id}`} style={{ marginRight: "10px" }}>
-                {movie.title}
-              </Link>
-              <button onClick={() => removeFromWatchlist(movie.id)}>❌ Remove</button>
-            </li>
-          ))}
-        </ul>
-      )}
+    <div className="main-div">
+      <div className="nav-bar">
+        <Navbar />
+      </div>
+      <div className="main-heading">
+        <h1>My Watchlist</h1>
+      </div>
+      <div className="body-div">
+        {watchlist.length > 0 ? (
+          watchlist.map((cards) => (
+            <div className="list-cards" key={cards.id}>
+              <img
+                src={`https://image.tmdb.org/t/p/w500${cards.poster_path}`}
+                alt={cards.title}
+                className="card-img"
+              />
+              <h3>{cards.title}</h3>
+              {cards.adult ? (
+                <img src={eighteen_plus_icon} alt="18+" className="adult-div" />
+              ) : (
+                <img src={twelve_plus_icon} alt="12+" className="adult-div" />
+              )}
+              <img
+                onClick={() => removeFromWatchlist(cards.id)}
+                className="trash_icon"
+                src={trash_icon}
+                alt="Remove"
+              />
+            </div>
+          ))
+        ) : (
+          <p>No movies added yet. Go add some!</p>
+        )}
+      </div>
     </div>
   );
 };
 
 export default WatchlistPage;
-

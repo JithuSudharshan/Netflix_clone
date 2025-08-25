@@ -11,18 +11,18 @@ import MyList from "./pages/MyList/MyList";
 
 
 const App = () => {
-  // const navigate = useNavigate();
-  // useEffect(() => {
-  //   onAuthStateChanged(auth, async (user) => {
-  //     if (user) {
-  //       console.log("logged in");
-  //       navigate("/");
-  //     } else {
-  //       console.log("logged out");
-  //       navigate("/login");
-  //     }
-  //   });
-  // }, []);
+  const navigate = useNavigate();
+  useEffect(() => {
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        console.log("logged in");
+        navigate("/");
+      } else {
+        console.log("logged out");
+        navigate("/login");
+      }
+    });
+  }, []);
   return (
     <div>
       <ToastContainer theme="dark" />

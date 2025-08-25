@@ -4,7 +4,11 @@ import App from "../App"
 const WatchlistContext = createContext();
 
 export const WatchlistProvider = () => {
-  const [watchlist, setWatchlist] = useState([]);
+  
+  const [watchlist, setWatchlist] = useState(() => {
+  const stored = localStorage.getItem("watchlist");
+  return stored ? JSON.parse(stored) : [];
+});
 
   
   const addToWatchlist = (movie) => {
@@ -20,7 +24,7 @@ export const WatchlistProvider = () => {
   };
 
   return (
-    <WatchlistContext.Provider value={{ watchlist, addToWatchlist, removeFromWatchlist }}>
+    <WatchlistContext.Provider value={{ watchlist, addToWatchlist, removeFromWatchlist}}>
      <App/>
     </WatchlistContext.Provider>
   );
