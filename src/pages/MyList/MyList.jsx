@@ -32,7 +32,7 @@ const WatchlistPage = () => {
                 className="card-img"
               />
               <h3>{cards.title}</h3>
-              {cards.adult ? (
+              {cards.adult === true ? (
                 <img src={eighteen_plus_icon} alt="18+" className="adult-div" />
               ) : (
                 <img src={twelve_plus_icon} alt="12+" className="adult-div" />
