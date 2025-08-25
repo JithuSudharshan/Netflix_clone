@@ -37,9 +37,9 @@ const TitleCards = ({ title, category }) => {
       <div className="card-list" ref={cardsRef}>
         {apiData.map((card, index) => {
           return (
-            <Link to={`/player/${card.id}`} className="card" key={index}>
+            <Link to={`/details/${card.id}`} className="card" key={index}>
               <img
-                src={`https://image.tmdb.org/t/p/original` + card.poster_path}
+                src={`https://image.tmdb.org/t/p/original` + card.poster_path}  
                 alt=""
               />
               {/* <p>{card.original_title}</p> */}

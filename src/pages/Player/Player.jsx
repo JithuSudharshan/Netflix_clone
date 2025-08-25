@@ -30,7 +30,7 @@ useEffect(()=>{
 },[])
   return (
     <div className="player">
-      <img src={back_arrow_icon} alt="" onClick={()=>navigate(-2)} />
+      <img src={back_arrow_icon} alt="" onClick={()=>navigate(-1)} />
       <iframe
         src={`https://www.youtube.com/embed/${playerData.key}`}
         width="90%"

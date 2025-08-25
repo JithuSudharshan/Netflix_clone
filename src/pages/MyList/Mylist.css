@@ -1,0 +1,9 @@
+.main-div{
+    position: relative;
+    
+}
+.mylist-cards{
+    position: absolute;
+    top: 40%;
+    padding-left: 6%;
+}

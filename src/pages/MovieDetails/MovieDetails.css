@@ -1,0 +1,86 @@
+.back-drop img {
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent, black 100%);
+  -weblit-mask-image: linear-gradient(to right, transparent, black 75%);
+  
+}
+.back-button{
+    position: fixed;
+    top:10%;
+    left: 5%;
+    z-index: 10;
+        
+}
+.back-button img{
+    width: 50px;
+    padding-left: 6%;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.movie-cointainer {
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+}
+.movie-details {
+  position: absolute;
+  top: 35%;
+  width: 100%;
+  padding-left: 6%;
+}
+.movie-details img {
+  display: block;
+  width: 300px;
+  z-index: 1;
+  margin-bottom: 30px;
+}
+.movie-details p {
+  max-width: 900px;
+  font-size: 17px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.banner-btns{
+  display: flex;
+  gap: 10px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+.banner-btns .btn img {
+  width: 40px;
+  padding-top: 25px;
+}
+.banner-btns .btn {
+  border: 0;
+  outline: 0;
+  padding: 5px 100px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 30px;
+  font-weight: 600;
+  background: white;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.banner-btns .btn.dark-btn {
+  color: #fff;
+  background: #6d6d6eb3;
+  margin-left: 10px;
+}
+.banner-btns .btn:hover {
+  background: red;
+}
+.banner-btns .btn.dark-btn:hover {
+  background: #6d6d6e66;
+}
+.rating{
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+.rating img{
+    width: 50px;
+    margin-top: 2px;
+}
