@@ -31,7 +31,9 @@ const TitleCards = ({ title, category }) => {
       .catch((err) => console.error(err));
     cardsRef.current.addEventListener("wheel", handleWheel);
   }, []);
+  console.log(apiData)
   return (
+    
     <div className="titlecards">
       <h2>{title ? title : "Popular on Netflix"}</h2>
       <div className="card-list" ref={cardsRef}>
